@@ -1,0 +1,22 @@
+# Copula specification for correlated parameter sampling.
+# Gaussian: symmetric dependence, no tail dependence.
+# Student-t: adds tail dependence controlled by degrees_of_freedom.
+
+copula_type: "gaussian"
+degrees_of_freedom: 5
+
+# Parameter names (order matches matrix rows/columns)
+parameters:
+  - "rd_compression.ai_compression_factor"
+  - "adoption.bass_p"
+  - "adoption.bass_q"
+  - "market.drift"
+  - "market.volatility"
+
+# Correlation matrix (symmetric positive-definite)
+matrix:
+  - [ 1.00,  0.50,  0.30,  0.20, -0.10]
+  - [ 0.50,  1.00,  0.40,  0.15, -0.05]
+  - [ 0.30,  0.40,  1.00,  0.10, -0.05]
+  - [ 0.20,  0.15,  0.10,  1.00,  0.30]
+  - [-0.10, -0.05, -0.05,  0.30,  1.00]

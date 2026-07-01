@@ -1,0 +1,49 @@
+# Distributional priors for uncertain parameters.
+# Each entry: family + hyperparameters -> frozen scipy distribution.
+# Beta(a, b): mean = a/(a+b). Higher (a+b) = tighter prior.
+
+clinical:
+  phase_1_to_2:
+    family: "beta"
+    params: {a: 52, b: 48}
+  phase_2_to_3:
+    family: "beta"
+    params: {a: 29, b: 71}
+  phase_3_to_approval:
+    family: "beta"
+    params: {a: 58, b: 42}
+  approval_to_launch:
+    family: "beta"
+    params: {a: 90, b: 10}
+
+rd_compression:
+  ai_compression_factor:
+    family: "beta"
+    params: {a: 3.0, b: 7.0}
+  cost_reduction_factor:
+    family: "beta"
+    params: {a: 2.5, b: 7.5}
+
+adoption:
+  bass_p:
+    family: "lognormal"
+    params: {mu: -3.51, sigma: 0.5}
+  bass_q:
+    family: "lognormal"
+    params: {mu: -0.97, sigma: 0.4}
+
+market:
+  drift:
+    family: "normal"
+    params: {loc: 0.12, scale: 0.04}
+  volatility:
+    family: "lognormal"
+    params: {mu: -1.71, sigma: 0.3}
+
+valuation:
+  exit_multiple_mu:
+    family: "normal"
+    params: {loc: 0.7, scale: 0.3}
+  exit_multiple_sigma:
+    family: "lognormal"
+    params: {mu: 0.18, sigma: 0.25}
