@@ -266,5 +266,16 @@ class TestPriorSamplerValidation:
 
     def test_malformed_yaml_no_family(self):
         raw = {"group": {"param": {"params": {"a": 1}}}}
-        w
-        
+        with pytest.raises(ValueError, match="must have 'family'"):
+            PriorSampler._from_dict(raw)
+
+    def test_malformed_yaml_non_dict_entry(self):
+        raw = {"group": {"param": "not_a_dict"}}
+        with pytest.raises(ValueError, match="Expected dict"):
+            PriorSampler._from_dict(raw)
+
+    def test_malformed_yaml_non_dict_category(self):
+        raw = {"group": "not_a_dict"}
+        with pytest.raises(ValueError, match="Expected dict"):
+            PriorSampler._from_dict(raw)
+            
