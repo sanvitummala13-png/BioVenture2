@@ -8,7 +8,7 @@ A quantitative research framework for modeling AI-enabled drug discovery markets
 
 BioVentureSim is a modular Python framework designed to model the long-term dynamics of AI-enabled drug discovery markets under uncertainty.
 
-Rather than producing a single deterministic forecast, the framework generates thousands of simulated market trajectories to quantify commercialization risk, market volatility, and long-term growth. The project combines methods from quantitative finance, computational biology, statistics, and machine learning to explore how scientific, regulatory, and economic factors influence emerging biotechnology markets.
+This framework generates thousands of simulated market trajectories to quantify commercialization risk, market volatility, and long-term growth. The project combines methods from quantitative finance, computational biology, statistics, and machine learning to explore how scientific, regulatory, and economic factors influence emerging biotechnology markets.
 
 ---
 
@@ -261,4 +261,4 @@ BioVentureSim is an independent research project intended for educational and sc
 ## Author
 
 Sanvi Tummala
-Independent Computational Biology & Quantitative Research
+Independent Computational Biology & Quantitative Researcher
