@@ -22,7 +22,7 @@ from bioventure.distributions.priors import PriorSampler, PriorSpec
 from bioventure.calibration.likelihoods import log_likelihood as _dispatch_ll
 
 try:
-    import emcee as _emcee
+    import _emcee as _emcee
     _HAS_EMCEE = True
 except ImportError:
     _HAS_EMCEE = False
