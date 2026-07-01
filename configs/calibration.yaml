@@ -1,0 +1,25 @@
+# Bayesian calibration settings.
+# method: "mle" (fast), "map" (+ prior penalty), "mcmc" (full posterior via emcee)
+
+method: "map"
+
+mcmc:
+  n_walkers: 32
+  n_steps: 5000
+  burn_in: 1000
+  thin: 5
+
+targets:
+  clinical:
+    data_source: "data/raw/clinical_transition_rates.csv"
+    likelihood: "binomial"
+  market:
+    data_source: "data/raw/market_baseline.csv"
+    likelihood: "normal"
+  adoption:
+    data_source: "data/raw/ai_adoption_anchors.csv"
+    likelihood: "least_squares"
+
+convergence:
+  r_hat_threshold: 1.05
+  min_effective_samples: 400

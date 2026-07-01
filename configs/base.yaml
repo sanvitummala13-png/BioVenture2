@@ -1,0 +1,50 @@
+simulation:
+  n_iterations: 50000
+  seed: 42
+  start_year: 2026
+  end_year: 2035
+  dt: 1.0
+
+clinical:
+  phases:
+    - name: "Phase I to Phase II"
+      probability: 0.52
+    - name: "Phase II to Phase III"
+      probability: 0.29
+    - name: "Phase III to Approval"
+      probability: 0.58
+    - name: "Approval to Launch"
+      probability: 0.90
+
+rd_compression:
+  baseline_timeline_years: 12.0
+  baseline_cost_billion_usd: 2.6
+  ai_compression_factor: 0.30
+  cost_reduction_factor: 0.25
+
+adoption:
+  model: "bass"
+  bass_p: 0.03
+  bass_q: 0.38
+  ceiling: 0.80
+  start_fraction: 0.05
+
+market:
+  anchor_2025_billion_usd: 55.0
+  process: "gbm"
+  process_params:
+    drift: 0.12
+    volatility: 0.18
+
+valuation:
+  payoff:
+    distribution: "lognormal"
+    params:
+      mu: 0.7
+      sigma: 1.2
+  portfolio:
+    n_bets: 20
+    bet_size_million_usd: 50.0
+  discount:
+    risk_free_rate: 0.045
+    risk_premium: 0.08
