@@ -22,7 +22,7 @@ from bioventure.distributions.priors import PriorSampler, PriorSpec
 from bioventure.calibration.likelihoods import log_likelihood as _dispatch_ll
 
 try:
-    import _emcee as _emcee
+    import emcee as emcee  # type: ignore[import-not-found]
     _HAS_EMCEE = True
 except ImportError:
     _HAS_EMCEE = False
@@ -369,7 +369,7 @@ class BayesianCalibrator:
             val = self.log_posterior(self._vec_to_params(vec))
             return val if np.isfinite(val) else -np.inf
 
-        sampler = _emcee.EnsembleSampler(
+        sampler = emcee.EnsembleSampler(
             n_walkers, self._n_params, _log_prob
         )
         sampler.run_mcmc(p0, n_steps, progress=progress)

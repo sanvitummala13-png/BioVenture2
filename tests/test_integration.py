@@ -45,9 +45,15 @@ _FINANCIAL_KEYS = (
 # ---------------------------------------------------------------------------
 
 @pytest.fixture(scope="module")
-def agg_result(full_recorder):
+def full_recorder(two_recorders):
+    r1, _ = two_recorders
+    return r1
+
+
+@pytest.fixture(scope="module")
+def agg_result(two_recorder):
     from bioventure.simulation import Aggregator
-    return Aggregator().summarise(full_recorder)
+    return Aggregator().summarise(two_recorder)
 
 
 @pytest.fixture(scope="module")
@@ -362,4 +368,3 @@ class TestReproducibility:
         np.testing.assert_array_equal(
             r1.adoption_curves, r2.adoption_curves
         )
-        
